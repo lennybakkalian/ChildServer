@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.UUID;
 
 import de.fettesteil.childserver.packets.LoginPacket;
 
@@ -29,7 +30,7 @@ public class ReconnectThread implements Runnable {
 					}
 					Thread.currentThread().sleep(5000);
 				} catch (Exception e) {
-					e.printStackTrace();
+					// e.printStackTrace();
 				}
 			}
 		}
@@ -40,7 +41,8 @@ public class ReconnectThread implements Runnable {
 		Main.connected = true;
 		Main.br = new BufferedReader(new InputStreamReader(Main.masterServer.getInputStream()));
 		Main.pw = new PrintWriter(Main.masterServer.getOutputStream(), true);
-		Main.send(new LoginPacket((String) Main.config.get("key")));
+		Main.send(new LoginPacket((String) Main.config.get("key"), true,
+				UUID.fromString((String) Main.config.get("uuid"))));
 		System.out.println("[ReconnectThread] connected to " + host);
 	}
 

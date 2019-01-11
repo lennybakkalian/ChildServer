@@ -11,7 +11,11 @@ public class Packet {
 	PROCESSFINFO = 4,
 	TERMINATEPROCESS = 5,
 	PINGTEST_SEND = 6,
-	PINGTEST_RECV = 7;
+	PINGTEST_RECV = 7,
+	ADD_SERVER = 8,
+	REMOVE_SERVER = 9,
+	BROADCAST = 10,
+	SEND_SERVERDATA = 11;
 
 	private int packetid;
 	private JSONObject data;

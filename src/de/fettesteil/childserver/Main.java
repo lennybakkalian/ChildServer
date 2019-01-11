@@ -88,6 +88,7 @@ public class Main {
 	public static void disconnect() {
 		if (connected) {
 			System.out.println("Disconnected");
+			connected = false;
 		}
 	}
 
